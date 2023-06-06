@@ -1,5 +1,6 @@
 import streamlit as st
 from langchain.llms import OpenAI
+import webbrowser
 
 st.title('🦜🔗 Quickstart App')
 
@@ -16,3 +17,9 @@ with st.form('my_form'):
     st.warning('Please enter your OpenAI API key!', icon='⚠')
   if submitted and openai_api_key.startswith('sk-'):
     generate_response(text)
+    
+st.header("Create API Key here")
+url = 'https://platform.openai.com/account/api-keys'
+
+if st.button('API Keys'):
+    webbrowser.open_new_tab(url)
